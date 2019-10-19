@@ -1,11 +1,13 @@
-""" Moin """
+""" Moin, useless!!!!! for the rest of this program """
+
+
 import mysql.connector
 #from mysql import connector
 
 #from mysql.connector import Error
 
 #try:
-connection = mysql.connector.connect(host='localhost', database='d01f0d0b', user='d01f0d0b@85.13.131.2', password='9QpUBWLhUFrcgmWR')
+connection = mysql.connector.connect(host='localhost', database='d01f0d0b', user='d01f0d0b@85.13.131.2', password='passwort')
 
 if connection.is_connected():
     db_Info = connection.get_server_info()
