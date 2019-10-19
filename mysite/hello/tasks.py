@@ -6,21 +6,13 @@ import django_rq
 #from movies.tasks import update_rating
 from django_rq import job
 from celery import app
-
-
 import os
 from celery import Celery
-
-
 from celery import shared_task
 from celery import task
-
-
-
 from celery.decorators import task	
 from celery.task.schedules import crontab
 from celery.decorators import periodic_task
-
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -34,14 +26,14 @@ import mysql.connector
 from mysql import connector
 from mysql.connector import Error
 
-app = Celery('hello', broker='amqp://guest@localhost//', backend='db+mysql://d01f0d0b:9QpUBWLhUFrcgmWR@85.13.131.2/d01f0d0b')
+app = Celery('hello', broker='amqp://guest@localhost//', backend='db+mysql://d01f0d0b:passwort@85.13.131.2/d01f0d0b')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 
 #result_backend = 'db+mysql://d01f0d0b:9QpUBWLhUFrcgmWR@85.13.131.2/d01f0d0b'
 
 #@shared_task#(bind=True, max_retries=3)
-@app.task#(broker='amqp://guest@localhost//', backend='db+mysql://d01f0d0b:9QpUBWLhUFrcgmWR@85.13.131.2/d01f0d0b')#(bind=True)
+@app.task#(broker='amqp://guest@localhost//', backend='db+mysql://d01f0d0b:passwort@85.13.131.2/d01f0d0b')#(bind=True)
 def scrap(c):
 	options = Options()
 	options.add_argument("--headless")
@@ -64,7 +56,7 @@ def scrap(c):
 	array = []
 	for link in soup.findAll('a', attrs={'href': re.compile("^/p")}):
 		array.append(link.get('href'))
-	connection = mysql.connector.connect(host='85.13.131.2', database='d01f0d0b', user='d01f0d0b', password='9QpUBWLhUFrcgmWR')
+	connection = mysql.connector.connect(host='85.13.131.2', database='d01f0d0b', user='d01f0d0b', password='passwort')
 	arra = []
 	i = 0
 	while i < 3:
