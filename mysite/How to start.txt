@@ -1,0 +1,15 @@
+
+RabbitMQ / RQ, Erlang installieren
+diverse pip installs
+
+FÜr DB die Login-Daten ändern.
+
+
+Celery-Start: 
+c:\Users\NAME\Desktop\mysite> celery -A mysite worker -l info -P eventlet
+Strg + C  zum beenden
+
+
+Django Website/Server starten:
+c:\Users\NAME\Desktop\mysite> python manage.py runserver
+
