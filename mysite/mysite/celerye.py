@@ -13,11 +13,11 @@ from celery import Celery
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 #django.setup()
 
-app = Celery('mysite', broker='amqp://guest@localhost//', backend='db+mysql://d01f0d0b:9QpUBWLhUFrcgmWR@85.13.131.2/d01f0d0b')
+app = Celery('mysite', broker='amqp://guest@localhost//', backend='db+mysql://d01f0d0b:password@85.13.131.2/d01f0d0b')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()  #lambda: settings.INSTALLED_APPS
 
-result_backend = 'db+mysql://d01f0d0b:9QpUBWLhUFrcgmWR@85.13.131.2/d01f0d0b'
+result_backend = 'db+mysql://d01f0d0b:password@85.13.131.2/d01f0d0b'
 
 # set the default Django settings module for the 'celery' program.
 #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
